@@ -109,7 +109,9 @@ return call_user_func( function(){
 	// サイトマップ読み込みの前に実行するプラグインを設定します。
 	$conf->funcs->before_sitemap = [
 		// px2-error-reporter
-		\tomk79\pickles2\px2ErrorReporter\register::register(),
+		\tomk79\pickles2\px2ErrorReporter\register::register(array(
+			"realpath_log_dir" => __DIR__.'/_sys/ram/logs/error_reporter/',
+		)),
 
 		// px2-clover
 		\tomk79\pickles2\px2clover\register::clover(array(
