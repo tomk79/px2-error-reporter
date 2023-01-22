@@ -1,0 +1,52 @@
+{
+    "name": "pickles2/px2-error-reporter",
+    "description": "Pickles 2 Error Reporting Plugin.",
+    "keywords": ["pickles2"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomoya Koyanagi",
+            "email": "tomk79@gmail.com"
+        }
+    ],
+    "scripts":{
+		"start": [
+			"@php ./tests/htdocs/.px_execute.php \"/?PX=serve&S=localhost:8080\""
+		],
+		"start-pub": [
+			"@php ./tests/htdocs/.px_execute.php \"/?PX=serve.pub&S=localhost:8081\""
+		],
+        "test": [
+            "php ./vendor/phpunit/phpunit/phpunit"
+        ]
+    } ,
+    "config": {
+        "process-timeout": 0
+    },
+    "minimum-stability": "dev",
+    "repositories": [
+    ],
+    "require": {
+        "php": ">=7.3.0"
+    },
+    "require-dev": {
+        "pickles2/px-fw-2.x": "~2.0",
+        "pickles2/px2-clover": "~0.2.0",
+        "pickles2/px2-dec": "~2.0",
+        "pickles2/px2-multitheme": "~2.0",
+        "pickles2/px2-path-resolver": "~2.0",
+        "pickles2/px2-px2dthelper": "~2.0",
+        "pickles2/px2-remove-attr": "~2.0",
+        "pickles2/px2-sitemapexcel": "~2.0||~2.1",
+        "tomk79/px2-serve": "~0.1.3",
+        "phpunit/phpunit": "~9.5",
+		"vlucas/phpdotenv": "~5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "tomk79\\pickles2\\px2ErrorReporter\\": [
+                "php"
+            ]
+        }
+    }
+}
