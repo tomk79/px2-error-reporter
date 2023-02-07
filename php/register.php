@@ -30,10 +30,11 @@ class register{
 
             // 例外ハンドラを設定する
             set_exception_handler(function(Throwable $exception) use ($options){
+                $datestr = date('Y-m-d H:i:s');
                 echo "Uncaught exception: ", $exception->getMessage(), "\n";
                 if( $options['realpath_log_dir'] ?? false && is_dir($options['realpath_log_dir']) ){
                     error_log(
-                        "Uncaught exception: ".$exception->getMessage().' on '.$exception->getFile().' line:'.$exception->getLine()."\n",
+                        $datestr." - Uncaught exception: ".$exception->getMessage().' on '.$exception->getFile().' line:'.$exception->getLine()."\n",
                         3,
                         $options['realpath_log_dir'].'/error_report.log'
                     );
@@ -42,9 +43,10 @@ class register{
 
             // エラーハンドラを設定する
             set_error_handler(function($errno, $errstr, $errfile, $errline) use ($options){
+                $datestr = date('Y-m-d H:i:s');
                 if( $options['realpath_log_dir'] ?? false && is_dir($options['realpath_log_dir']) ){
                     error_log(
-                        'Error['.$errno.']: '.$errstr.' on '.$errfile.' line:'.$errline."\n",
+                        $datestr.' - Error['.$errno.']: '.$errstr.' on '.$errfile.' line:'.$errline."\n",
                         3,
                         $options['realpath_log_dir'].'/error_report.log'
                     );
