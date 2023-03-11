@@ -6,7 +6,7 @@ TBD
 
 ## 更新履歴 - Change log
 
-### tomk79/px2-error-reporter v0.1.0 (リリース日未定)
+### tomk79/px2-error-reporter v0.1.0 (2023年3月11日)
 
 - Initial release.
 
