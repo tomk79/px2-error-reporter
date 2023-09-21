@@ -41,7 +41,7 @@ class register{
 	static private function register_error_handler($px, $options){
 		// 例外ハンドラを設定する
 		set_exception_handler(function(Throwable $exception) use ($px, $options){
-			$datestr = date('Y-m-d H:i:s');
+			$datestr = date('c');
 			echo "Uncaught exception: ", $exception->getMessage(), "\n";
 			if( $px ){
 				$px->error( "Uncaught exception: ", $exception->getMessage() );
@@ -57,7 +57,7 @@ class register{
 
 		// エラーハンドラを設定する
 		set_error_handler(function($errno, $errstr, $errfile, $errline) use ($px, $options){
-			$datestr = date('Y-m-d H:i:s');
+			$datestr = date('c');
 			if( $px ){
 				$px->error( 'Error['.$errno.']: '.$errstr.' on '.$errfile.' line:'.$errline );
 			}
